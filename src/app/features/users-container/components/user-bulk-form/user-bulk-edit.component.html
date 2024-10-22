@@ -1,0 +1,63 @@
+<div>
+  <button
+    *ngIf="!isShowCancelBtn"
+    type="button"
+    class="btn btn-primary"
+    [disabled]="isShowErrorCount"
+    (click)="onSubmit()"
+  >
+    Submit all forms
+  </button>
+  <button
+    *ngIf="isShowCancelBtn"
+    type="button"
+    class="btn btn-danger"
+    (click)="onCancel()"
+  >
+    Cancel
+  </button>
+  <span
+    *ngIf="isShowCancelBtn"
+    class="text-muted ms-3"
+    >0:0{{ timer$ | async }}</span
+  >
+  <span
+    *ngIf="isShowErrorCount"
+    class="ms-4 text-danger"
+    >Invalid Forms: {{ getInvalidFormsCount() }}</span
+  >
+  <div class="row mt-4">
+    <ng-container *ngFor="let user of formArray.controls; let i = index; let first = first">
+      <div class="col-md-6 col-lg-3 col-xxl-3 mb-4 position-relative">
+        <app-user-card
+          [tabindex]="i"
+          [form]="user"
+        ></app-user-card>
+        <button
+          *ngIf="!first"
+          class="btn btn-sm position-absolute top-0 end-0 m-2 me-3"
+          (click)="onRemoveUserForm(i)"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </ng-container>
+    <div
+      *ngIf="formArray.controls.length <= 10"
+      class="col-md-6 col-lg-3 col-xxl-3 mb-4 position-relative"
+    >
+      <div
+        class="card d-flex justify-content-center align-items-center"
+        style="border: dashed; min-height: 292px"
+      >
+        <button
+          class="btn btn-lg"
+          (click)="onAddUserForm()"
+        >
+          <i class="bi bi-plus-circle-dotted fs-1"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  <pre>{{ formArray.value | json }}</pre>
+</div>

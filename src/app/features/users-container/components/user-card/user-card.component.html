@@ -1,0 +1,65 @@
+<div
+  class="card card-body"
+  [formGroup]="form"
+>
+  <div class="mb-3">
+    <label
+      for="country"
+      class="form-label"
+      >Country*</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="country"
+      aria-describedby="countryHelp"
+      placeholder="Country"
+      list="datalistOptions"
+      formControlName="country"
+      appValidationTooltip
+    />
+
+    <datalist id="datalistOptions">
+      <option
+        *ngFor="let country of countries"
+        [value]="country"
+      >
+        {{ country }}
+      </option>
+    </datalist>
+  </div>
+
+  <div class="mb-3">
+    <label
+      for="user-name"
+      class="form-label"
+      >Username*</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="user-name"
+      aria-describedby="userNameHelp"
+      placeholder="Username"
+      formControlName="username"
+      appValidationTooltip
+    />
+  </div>
+
+  <div class="mb-3">
+    <label
+      for="user-name"
+      class="form-label"
+      >Birthday*</label
+    >
+    <input
+      type="date"
+      class="form-control"
+      id="user-name"
+      aria-describedby="userNameHelp"
+      placeholder="Birthday"
+      formControlName="birthday"
+      appValidationTooltip
+    />
+  </div>
+</div>
