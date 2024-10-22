@@ -54,6 +54,9 @@ export class UserBulkEditComponent implements OnInit {
 
   onAddUserForm(): void {
     const userForm = new UserCardComponent(this.userNameValidator)?.form;
+    if (!userForm) {
+      return;
+    }
     this.formArray.push(userForm);
   }
 
@@ -106,7 +109,7 @@ export class UserBulkEditComponent implements OnInit {
   }
 
   private starTimer(): Observable<number> {
-    return timer(10, 1000).pipe(
+    return timer(5, 1000).pipe(
       skip(1),
       take(this.timerCount),
       tap((val) => this.timerSubject.next(this.timerCount - val)),
