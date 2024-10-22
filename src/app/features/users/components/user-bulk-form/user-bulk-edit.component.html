@@ -27,14 +27,14 @@
     >Invalid Forms: {{ getInvalidFormsCount() }}</span
   >
   <div class="row mt-4">
-    <ng-container *ngFor="let user of formArray.controls; let i = index; let first = first">
+    <ng-container *ngFor="let user of formArray.controls; let i = index; let length = count">
       <div class="col-md-6 col-lg-3 col-xxl-3 mb-4 position-relative">
         <app-user-card
           [tabindex]="i"
           [form]="user"
         ></app-user-card>
         <button
-          *ngIf="!first"
+          *ngIf="length !== 1"
           class="btn btn-sm position-absolute top-0 end-0 m-2 me-3"
           (click)="onRemoveUserForm(i)"
         >

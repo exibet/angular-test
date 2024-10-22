@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
 import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MockBackendInterceptor } from './shared/mock-backend/mock-backend.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { UsersContainerComponent } from "./features/users-container/users-container.component";
+import { UsersContainerComponent } from './features/users/users-container.component';
 
 @NgModule({
   declarations: [AppComponent],
