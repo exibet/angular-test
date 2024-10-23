@@ -12,7 +12,7 @@ export class UserNameValidator implements AsyncValidator {
       return of({ unavailable: true });
     }
 
-    return this.userApiService.validateUsername(control.value).pipe(
+    return this.userApiService.validateUsername(control.value.toLowerCase()).pipe(
       map((response) => {
         return response.isAvailable ? null : { unavailable: true };
       }),
