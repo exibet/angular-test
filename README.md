@@ -11,7 +11,7 @@
 - First input, Country should be a text input. While the user types, it should suggest values from the Country enum (`src/app/shared/enum/country.ts`). It should validate and not allow submitting forms with values not listed in the Country enum.
 
 - Second input, Username should be a text input with backend validation. After the user stops typing, the value from this input should be sent to `/api/checkUsername`. If the backend responds with `{isAvailable: true}`, it means that the username is available. If the backend responds with `{isAvailable: false}`, the user should choose another username.
-  - To emulate the backend, all requests are handled by an interceptor. If you need to get `{isAvailable: true}`, the value sent to `/api/checkUsername` should include the word **new**. In other cases, `/api/checkUsername` returns `{isAvailable: false}`.
+  - To emulate the backend, all requests are handled by an interceptor. If you need to get `{isAvailable: true}`, the value sent to `/api/checkUsername` should include the word `new`. In other cases, `/api/checkUsername` returns `{isAvailable: false}`.
 
 - Third input, Birthday, just a datepicker. Birthdays cannot be after the current date.
 
